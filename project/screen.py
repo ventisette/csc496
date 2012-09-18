@@ -1,6 +1,6 @@
 #Screen.py is module that uses pygame to manipulate a window.
 #Last edited by Cameron Callery 09/10/2012
-# Functions followed by '*' are not fully document here as they are methods
+# Functions followed by '*' are not fully documented here as they are methods
 # that are defined elsewhere.  
 import pygame
 import sys
@@ -177,16 +177,10 @@ class Window:
                   self.draw(Surface, rect)
            Returns: None
         '''
-        if size > 0:
-            temp = self.FONT
-            self.FONT.quit()
-            self.set_font(None, size)
         source = self.FONT.render(str(text), 1, color)
         destination = source.get_rect()
         destination.center = location
         self.draw(source, destination)
-        self.FONT.quit()
-        self.set_font(None, 12)
 
 #check_quit_event######################################################################## 
     def check_quit_event(self):
