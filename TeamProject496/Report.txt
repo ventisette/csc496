@@ -1,0 +1,70 @@
+
+November 21, 2012
+
+Functionality Added:
+---  Zombies can now appear on map
+---  Added zombie movement
+---  Added the ability to pick up weapons
+---  zombies drop items
+---  zombies take damage
+---  items are left on map
+Issues: 
+---  If Items are on the map, zombies stop being generated after they are all killed until all items are picked up. 
+--- When item is picked up image behind player does not change.
+---  Bullets change to the projectile type of the newly picked up weapon 
+---  All classes could probably use some cleaning up. 
+---  We need to also check efficiency make sure everything we do is almost the best way of doing things.
+Note::  We should all look into how we should thread this, should improve frame rates a great deal.
+
+------------------------------------------------------------------------------------------------
+
+November 22, 2012
+
+Added:
+---  Added new projectile MagRound
+---  Added new projectile sawblade
+---  Added new weapon sawshot
+---  Handgun projectile changed to MagRound - instant kill but slowed the fire rate for the gun
+---  Drew images for:
+	zombies
+	bullets
+	player
+	assualtrifle
+	flamethrower
+	sawshot - (gun that shoots saw blades)
+	handgun
+	sawblade
+---  Fixed some things so that now only certain projectile types can rotate,
+     must create a method in that projectiles class to use it otherwise no
+     projectile rotation
+---  Changed zombie spawn test structure
+---  Added new weapon, special for zombie has it's own dmg since the attack itself is not a projectile
+---  Zombies do damage
+---  Added collision detection for players and zombies, not moving through one another
+---  Made the flamethrower work over a distance
+---  Zombies now do extra damage based on whether they are enraged or not
+	+ an additional 50% of total damage for enrage level 1
+	+ 2x damage for enrage level 2
+---  Allow for a max of only 20 items dropped on the screen at a time
+---  Feature added press 'V' to fullscreen
+---  Feature added press 'B' to exit fullscreen
+Fixed issues:
+---  Bullets change to the projectile type of the newly picked up weapon 
+---  If Items are on the map, zombies stop being generated after they are all killed until all items are picked up. 
+--- When item is picked up image behind player does not change.
+Issues:
+---  All classes could probably use some cleaning up. 
+---  We need to also check efficiency make sure everything we do is almost the best way of doing things.
+Note::  We should all look into how we should thread this, should improve frame rates a great deal.
+
+------------------------------------------------------------------------------------------------
+November 27, 2012
+
+---  Added ammo bar to game.
+---  Created ammo bar image.
+---  Fixed font size issue.
+------------------------------------------------------------------------------------------------
+November 28, 2012
+
+---  Fixed up the ammo bar.
+---  Extended width of ammo bar image so it looks better. 
