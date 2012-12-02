@@ -330,9 +330,10 @@ class Weapon(Entity):
     #Edit for Shell ************************
     def shoot(self, screen_size, old_screen_size):
         pressed = pygame.mouse.get_pressed()
+        keys_pressed = pygame.key.get_pressed() # Get the pressed keys
         mouse_pos = pygame.mouse.get_pos()
         #make sound here!!!
-        if pressed[0] == 1 and self.currClip != 0 and self.limiter >= 20:            
+        if (pressed[0] == 1 or keys_pressed[32] == 1) and self.currClip != 0 and self.limiter >= 20:            
             self.limiter = 0
             self.currClip -= 1
             self.activeRounds.append(self.projectile((self.x, self.y)))

@@ -89,6 +89,11 @@ def gameAndLogic():
         check_significant_keypresses (keys_pressed, window, player, items, fired, z)
         #***********************************************************************
 
+
+        
+
+
+
         #***********************************************************************
         # Player movement, weapon carrying and drawing structures placed here.
         lastx = player.x # If player tries to move and collides with an enemy 
@@ -108,7 +113,21 @@ def gameAndLogic():
         #***********************************************************************
 
 
+        px = player.x - window.SCREEN_WIDTH/2
+        py = player.y - window.SCREEN_HEIGHT/2
+        for item in items:
+            item.x -= px
+            item.y -= py
+        for enemy in z:
+            enemy.x -= px
+            enemy.y -= py
+        player.x = window.SCREEN_WIDTH/2
+        player.y = window.SCREEN_HEIGHT/2
 
+
+
+
+           
         #***********************************************************************
         # Drawing functionality
         window.draw_background()
