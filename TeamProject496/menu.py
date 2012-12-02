@@ -158,7 +158,7 @@ class cMenu:
       self.image_highlight_offset = 2           # Addition padding around image
                                                 # buttons only for the highlight
 
-      self.background = background.copy()       # The unedited background image
+      self.background = background       # The unedited background image
       self.draw_surface = background            # Surface to draw to
       self.centered = False                     # True if the menu is centered
       self.centeredOnScreen = False             # True if the menu is centered
@@ -413,7 +413,7 @@ class cMenu:
             try:
                width, height = button_info[3]
                img_btn = pygame.transform.smoothscale(img_btn, (button_info[3][0], button_info[3][1]))
-               print "not e"
+               #print "not e"
             except Exception as e:
                print e
                if button_info[0] != None:

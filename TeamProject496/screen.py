@@ -48,7 +48,7 @@ class Window:
         else:
             self.set_background(background_img)
         self.FONTS = []
-
+        self.isFullScreened = False
 #full_screen######################################################################## 
     def full_screen(self):
         ''' Name:full_screen
@@ -76,6 +76,7 @@ class Window:
         else:
             self.set_background(self.ACTUAL_BACK_IMG)
         self.draw_background() #Re-draw the background.'''
+        self.isFullScreened = True
         pygame.display.set_mode((0,0), pygame.FULLSCREEN)
         
 #exit_full_screen########################################################################         
@@ -92,6 +93,7 @@ class Window:
                    self.draw_background()
             Returns: None
         '''
+        self.isFullScreened = False
         self.OLD_SCREEN_WIDTH = self.SCREEN_WIDTH
         self.OLD_SCREEN_HEIGHT = self.SCREEN_HEIGHT
         self.set_screen_dimensions(screen_width, screen_height)
@@ -147,7 +149,7 @@ class Window:
            Calls: pygame.display.update(Surface, Suraface list)*
            Returns: None
         '''
-        pygame.display.update(self.SCREEN, update_list)
+        pygame.display.update(update_list)
 
     """
     """

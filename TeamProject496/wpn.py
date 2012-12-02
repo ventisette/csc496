@@ -463,6 +463,7 @@ class Projectile(Entity):
         return True
     
     def handleProjectile(self, rotation = 0):
+        self.move()
         self.timeOnField -= 1
         if self.timeOnField == 0:
             self.destroy()        
