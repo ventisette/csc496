@@ -40,7 +40,7 @@ def check_significant_keypresses(keys_pressed, window, player, items, fired, ene
                         items.extend([pickedUp])   
         elif keys_pressed[112] == 1:
             pauseMenu()
-            window.set_background("images/field.jpg")
+            #window.set_background("images/field.jpg")
         pygame.key.set_repeat(1, 1)
             
 """
