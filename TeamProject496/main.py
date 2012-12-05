@@ -23,19 +23,6 @@ mif = "images/cursor.png"
 pygame.mouse.set_visible(False)                  #hides the cursor so only the cross hair is seen
 mouse_c = pygame.image.load(mif).convert_alpha()  #For converting images to types that are usable by python
 
-
-# the following code opens the text file "Scores.txt." It then writes
-# the scores in this document to prevSCORES, a global variable.
-# SCORE is a global variable which holds the current score of the game.
-
-#prevSCORES is broken -- needs better formatting!!!
-file = open("Config.txt")
-SCORE = 0 # global score variables
-prevSCORES = []
-for SCORES in file:
-    prevSCORES += SCORES.format(prevSCORES)
-    
-    
 def check_significant_keypresses(keys_pressed, window, player, items, fired, enemies):
     for event in pygame.event.get():
         if event.type == QUIT:
@@ -76,8 +63,6 @@ def gameAndLogic():
     items = []
     z = []
     i = 0
-    global SCORE
-    global prevSCORES
     MAXNUM = 1
     isPaused = False
     player = Player((window.SCREEN_WIDTH/2, window.SCREEN_HEIGHT/2)) # Init the player.
@@ -203,8 +188,7 @@ def gameAndLogic():
 
         try:  
             window.draw(gun_source, gun_destination) 
-            window.draw(hero_source,hero_destination) 
-            window.write(SCORE, (window.SCREEN_WIDTH - 40, window.SCREEN_HEIGHT - 8), (0, 0, 255), 1)            
+            window.draw(hero_source,hero_destination)            
             #window.write(fps, (window.SCREEN_WIDTH - 40, window.SCREEN_HEIGHT - 8), (0, 0, 255), 1)
             #window.write(str(player.weapon.currClip) + "/" + str(player.weapon.ammo),\
             #             (window.SCREEN_WIDTH - 40, window.SCREEN_HEIGHT - 16), (255, 0, 255), 1)
@@ -214,14 +198,6 @@ def gameAndLogic():
             pass
         
         window.update()
-        
-    # the following adds the current score to the previous scores, and
-    # writes the previous scores out to Scores.txt, a text file. Then,
-    # it resets SCORE to 0 for the next game.
-    prevSCORES.append(SCORE)
-    with open("Config.txt", "w") as text_file:
-        text_file.write("Score: %s" %prevSCORES)    
-    SCORE = 0
 #************************************************************************
 
 #*********************************Main Menu Function***************************************
@@ -329,20 +305,11 @@ def pauseMenu():
         window.update()
     pygame.key.set_repeat(1, 1)
 
-#*********************************Controls Function****************************************
-# The Controls Function draws an image on the screen displaying the appropriate controls
-def controls():
-    img = pygame.image.load("images/controls.png").convert_alpha()
-    surf = pygame.Surface ((math.trunc(window.SCREEN_WIDTH*.82), math.trunc(window.SCREEN_HEIGHT*.625)), 0, img)
-    img = pygame.transform.smoothscale(img, (math.trunc(window.SCREEN_WIDTH*.82), math.trunc(window.SCREEN_HEIGHT*.625)), surf)
-    window.draw(img, (window.SCREEN_WIDTH*.09,window.SCREEN_HEIGHT*.18))
-    
 #*********************************Main Menu Function***************************************
 def optionsMenu():
     state = 0
     prev_state = 1
     rect_list = []
-    controls = False
     exitOptions = True
     image1 = load_image('ammobelt.jpg', 'images')
     optionsMenu = cMenu(50,50, 10,10, 'vertical', 10, window.SCREEN,
@@ -364,7 +331,7 @@ def optionsMenu():
             if state == 0:
                 rect_list, state = optionsMenu.update(l, state)
             if state == 1:
-                controls()
+                pass
                 state = 0
             elif state == 2:
                 pass
